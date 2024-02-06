@@ -12,28 +12,28 @@ li {
 
 @keyframes fade-in {
     from {
-        opacity: 0; /* Start with opacity 0 */
+        opacity: 0;
     }
     to {
-        opacity: 1; /* End with opacity 1 */
+        opacity: 1;
     }
 }
 
 @keyframes expand {
     from {
-        height: 0; /* Start with height 0 */
+        height: 0;
     }
     to {
-        height: 7rem; /* End with desired height */
+        height: 7rem;
     }
 }
 
 @keyframes slide-down {
     from {
-        height: 0; /* Start with height 0 */
+        height: 0;
     }
     to {
-        height: 10rem; /* End with desired height */
+        height: 10rem; 
     }
 }
 
@@ -60,13 +60,13 @@ li {
 .bar {
     display: flex;
     flex-direction: column;
-    background-color: #1a2b3d;
+    background: linear-gradient(135deg, #1a2b3d, #2c3e50); /* Gradient background */
     color: #ECF0F1;
-    height: 0; /* Start with height 0 */
+    height: 0;
     justify-content:space-around ;
     box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Hide overflowing content */
-    animation: slide-down 3s forwards; /* Adjust duration as needed */
+    overflow: hidden; 
+    animation: slide-down 3s forwards; 
     animation-delay: 1.8s;
 }
 
@@ -103,12 +103,11 @@ li {
     height: 7rem;
     box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.3),
                 inset 0px -5px 10px rgba(0, 0, 0, 0.3);
-    height: 0; /* Start with height 0 */
-    overflow: hidden; /* Hide overflowing content */
+    height: 0; 
+    overflow: hidden;
     animation: expand 1s forwards; 
     animation-delay: 1s;
 }
-
 
 .separator img {
     margin-top: 30px;
@@ -122,9 +121,9 @@ li {
     flex-direction: column;
     align-self: center;
     align-items: center;
-    animation: app-launch 0.5s ease-out 10s forwards;
+    animation: app-launch .6s ease-out 10s forwards;
     transform-origin: center;
-    opacity: 0; /* Start with opacity 0 */
+    opacity: 0; 
 }
 
 .contact img{
@@ -140,4 +139,38 @@ footer {
     font-size: .5rem;
     animation: fade-in 5s forwards;
     animation-delay: 10s;
+}
+
+.qr-code {
+    display: none; /* Initially hide the QR code */
+    animation: app-launch .6s ease-out 10s forwards;
+    transform-origin: center;
+    opacity: 0; 
+}
+
+/* Media query for PC browsers */
+@media only screen and (min-width: 768px) {
+    .qr-code {
+        display: flex;
+        align-self: center;
+        width: 150px; /* Adjust width as needed */
+        height: 150px; /* Adjust height as needed */
+        background-image: url('/regunaga/src/frame.png'); /* Specify the path to your QR code image */
+        background-size: cover; /* Ensure the image covers the entire div */
+        z-index: 9999; /* Ensure the QR code appears above other content */
+    }
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    opacity: 0;
+    font-size: 1rem;
+    animation: fade-in 5s forwards;
+    animation-delay: 10s;
+}
+.sub-main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 }
