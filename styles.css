@@ -28,12 +28,21 @@ li {
     }
 }
 
+@keyframes expand-2 {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 29rem;
+    }
+}
+
 @keyframes slide-down {
     from {
         height: 0;
     }
     to {
-        height: 10rem; 
+        height: 8rem; 
     }
 }
 
@@ -52,6 +61,22 @@ li {
     }
 }
 
+@keyframes color-transition {
+    0% {
+        background-color: #502552; 
+    }
+    100% {
+        background-color: #ECF0F1; 
+    }
+}
+
+
+body {
+    background-color: #502552; 
+    animation: color-transition 6s ease-in-out forwards; 
+    animation-delay: 1s;
+}
+
 .main-container {
     display: flex;
     flex-direction: column ;
@@ -60,7 +85,7 @@ li {
 .bar {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, #1a2b3d, #2c3e50); /* Gradient background */
+    background: linear-gradient(135deg, #331830, #382236);
     color: #ECF0F1;
     height: 0;
     justify-content:space-around ;
@@ -75,23 +100,35 @@ li {
     font-family: 'Lato', sans-serif;
     text-align: center;
     margin: 0.2rem 0;
+    opacity: .9;
+}
+
+
+.sub-main-container {
+    height: 0;
+    overflow: hidden;
+    animation: expand-2 4.5s forwards;
+    animation-delay: 2s;
 }
 
 .text-container {
     padding: 1.99rem;
+    overflow: hidden;
 }
 
 .text-container p {
+    background-color: #502552; 
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     opacity: 0;
-    animation: fade-in 7s forwards;
-    animation-delay: 4s;
+    animation: fade-in 2s forwards, color-transition 6s ease-in-out forwards;
+    animation-delay: 3.5s, 1s;
 }
 
 .text-container .delayed_p {
-    animation: fade-in 5s forwards;
-    animation-delay: 7.5s;
+    background-color: #502552;
+    animation: fade-in 2s forwards, color-transition 6s ease-in-out forwards;
+    animation-delay: 5s, 1s;
 }
 
 .separator {
@@ -113,7 +150,7 @@ li {
     margin-top: 30px;
     height: 50px;
     width: 50px;
-    opacity: .45;
+    opacity: .9;
 }
 
 .contact {
@@ -121,7 +158,7 @@ li {
     flex-direction: column;
     align-self: center;
     align-items: center;
-    animation: app-launch .6s ease-out 10s forwards;
+    animation: app-launch .2s ease-out 6s forwards;
     transform-origin: center;
     opacity: 0; 
 }
@@ -133,31 +170,40 @@ li {
 }
 
 footer {
-    margin-top: 3rem;
+    padding: 1rem;
     text-align: center;
     opacity: 0;
     font-size: .5rem;
     animation: fade-in 5s forwards;
-    animation-delay: 10s;
+    animation-delay: 8s;
 }
 
 .qr-code {
-    display: none; /* Initially hide the QR code */
-    animation: app-launch .6s ease-out 10s forwards;
+    display: none;
+    animation: app-launch .2s ease-out 6s forwards;
     transform-origin: center;
     opacity: 0; 
 }
 
 /* Media query for PC browsers */
 @media only screen and (min-width: 768px) {
+    @keyframes expand-2 {
+        0% {
+            height: 0;
+        }
+        100% {
+            height: 12.5rem;
+        }
+    }
+
     .qr-code {
         display: flex;
         align-self: center;
-        width: 150px; /* Adjust width as needed */
-        height: 150px; /* Adjust height as needed */
-        background-image: url('/regunaga/src/frame.png'); /* Specify the path to your QR code image */
-        background-size: cover; /* Ensure the image covers the entire div */
-        z-index: 9999; /* Ensure the QR code appears above other content */
+        width: 150px; 
+        height: 150px; 
+        background-image: url('/regunaga/src/frame.png'); 
+        background-size: cover; 
+        z-index: 9999;
     }
 
 footer {
@@ -166,7 +212,7 @@ footer {
     opacity: 0;
     font-size: 1rem;
     animation: fade-in 5s forwards;
-    animation-delay: 10s;
+    animation-delay: 8s;
 }
 .sub-main-container {
     display: flex;
